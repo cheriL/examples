@@ -10,6 +10,7 @@ import (
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 
+	"github.com/fyne-io/examples/album"
 	"github.com/fyne-io/examples/bugs"
 	"github.com/fyne-io/examples/clock"
 	"github.com/fyne-io/examples/fractal"
@@ -31,13 +32,14 @@ var apps = []appInfo{
 	{"Clock", icon.ClockBitmap, true, clock.Show},
 	{"Fractal", icon.FractalBitmap, true, fractal.Show},
 	{"Tic Tac Toe", nil, true, tictactoe.Show},
+	{"Album", theme.QuestionIcon(), true, album.Show},
 }
 
 func main() {
 	a := app.New()
 	a.SetIcon(resourceIconPng)
 
-	content := container.NewMax()
+	content := container.NewStack()
 	w := a.NewWindow("Examples")
 
 	apps[4].icon = theme.RadioButtonIcon() // lazy load Fyne resource to avoid error
